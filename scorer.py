@@ -38,13 +38,21 @@ def getting_date():
     
 
 def get_score():
+    score = 0
     if input("Was the day a special day? (y/n) ").lower() == "y":
         #DO SPECIAL DAY SCORING HERE
         print("Special day!")
         return 100
     else:
         print("Normal day scoring")
-        
+        curr_ans = input("Did you wake up before 8 (a), before 10 (b), or after 10 (c)? ")
+        if curr_ans == 'a':
+            score += 10
+        elif curr_ans == 'b':
+            score += 3
+        if input("Did you make your bed in the morning? (y/n)") == 'y':
+            score += 5
+         
 
 
 

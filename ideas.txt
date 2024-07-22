@@ -22,7 +22,7 @@ habits on my normal days and the rest will work itself out.
    -Exercised (25 pts)
    -Complimented someone (5 pts)
    -Scrolled on social media (25 pts for none, 10 pts for a little (less than 30 mins), 0 pts for any more than 30 mins)
-   -Time that I woke up (8 or earlier 10 pts, 10 or earlier 5 pts, after 10 0)
+   -*** Time that I woke up (8 or earlier 10 pts, 10 or earlier 5 pts, after 10 0)
    -Time that I will go to sleep (11 or earlier 10 pts, 1 or earlier 5 pts, after 0 pts)
    -Drank enough water (15 pts)
    -Went on phone right when I woke up (15 pts if no)
@@ -34,7 +34,7 @@ habits on my normal days and the rest will work itself out.
    -Stretched/mobility of some sort (at least 10 minutes) (7 pts)
    -Interacted with friends (18 pts)
    -Make money/save money? (9 pts)
-   -Made bed (5 pts)
+   -*** Made bed (5 pts)
    -fall asleep with phone on (no 5pts)
 
 
