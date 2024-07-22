@@ -1,0 +1,52 @@
+Planning out my scoring system:
+
+-I want to generate a score that represents how good/productive my day was, however, not all days
+should be ranked on the same criteria. I don't need to be productive or anything when I am on vacation.
+So, those days will be treated differently than normal days. There is the thought that if I am trying to build habits,
+then I should be working on it all the time, but I am going to counter my own thought by saying that I am fine to build my
+habits on my normal days and the rest will work itself out.
+
+
+
+-First, detmerine if the day is a normal day or a special day.
+  -If special, the day is going to be scored just based off a subjective ranking
+  -NEED TO DETERMINE HOW THE SCORING WILL WORK FOR THESE DAYS!!!!
+
+  -If normal day, proceed to questions.
+
+
+-Ideas for questions that I can use to determine the quality of my day:
+   -Outside for at least an hour (25 pts)
+   -Read 10 pages of book (20 pts)
+   -Did something fun (20 pts)
+   -Exercised (25 pts)
+   -Complimented someone (5 pts)
+   -Scrolled on social media (25 pts for none, 10 pts for a little (less than 30 mins), 0 pts for any more than 30 mins)
+   -Time that I woke up (8 or earlier 10 pts, 10 or earlier 5 pts, after 10 0)
+   -Time that I will go to sleep (11 or earlier 10 pts, 1 or earlier 5 pts, after 0 pts)
+   -Drank enough water (15 pts)
+   -Went on phone right when I woke up (15 pts if no)
+   -Did I eat healthy today (25 pts for yes, 10 pts for sort of, 0 pts for no)
+   -Learned something new (12 pts for yes)
+   -Did something productive (work, school, etc.) (20 pts)
+   -Work outside of school to better myself/set myself up for future success (LeetCode type activities) (14 pts)
+   -Went outside my comfort zone (15 pts)
+   -Stretched/mobility of some sort (at least 10 minutes) (7 pts)
+   -Interacted with friends (18 pts)
+   -Make money/save money? (9 pts)
+
+
+       -Notes: 
+         -Some of these questions are like yes or no type questions and points will be given/deducted
+         based on if I did them or not, and others are open-ended questions that will be scored based on the values.
+         -Some of these questions will be worth more than others simply based off my own preferences and goals.
+
+
+-Plan/thoughts for my plan:
+-Store scores with dates, days, score, and a note in case I want to add a short message about that day.
+    -Need to be able to store/save this data over time, I can't constantly have the program running.
+    -Need to be able to complete input prior days and the current date. 
+    -I want to be able to visualize all of my scores and look at the trends/progression over time. 
+
+
+
