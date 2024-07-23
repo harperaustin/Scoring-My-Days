@@ -204,11 +204,12 @@ def show_plot():
                 #Gather score data
                 scores.append(int(line.strip()))
 
+    plt.style.use('dark_background')
     #Create the plot
     fig, ax = plt.subplots()
 
     #Plot the data
-    ax.plot(dates, scores)
+    #ax.plot(dates, scores)
 
     #Format the x-axis to show dates
     ax.xaxis.set_major_locator(mdates.DayLocator())
@@ -217,9 +218,21 @@ def show_plot():
     #Make x-axis labels look cleaner
     fig.autofmt_xdate()
 
+    dashed = [25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300, 325, 350]
+    ax.hlines(y=dashed, xmin=dates[0], xmax=dates[-1], colors='gray', linestyles='dashed', linewidth=0.5)
+    ax.set_ylim(100, 350)
+
+    ax.plot(dates, scores, marker='o', linestyle='-', color='cornflowerblue',markersize=8, markerfacecolor='crimson')
+    
+    average = sum(scores)/len(scores)
+    ax.hlines(y=average, xmin=dates[0], xmax=dates[-1], colors='lightcoral', linestyles='dashed')
+    ax.text(dates[0], average - 15, "Average Score: " + str(int(average)), verticalalignment='bottom', color='lightcoral')
+
     ax.set_xlabel("Date")
     ax.set_ylabel("Score")
     ax.set_title("Day scores")
+
+    
     
     plt.show()
 
