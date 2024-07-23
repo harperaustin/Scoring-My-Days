@@ -11,22 +11,32 @@ def check_valid_date(date):
         if parsed_date > datetime.now():
             print("Date is in the future")
             return False
-        
+        with open("day_scores.txt", "r" ) as file:
+            count = 0
+            for line in file:
+                count += 1
+                if count % 4 == 1:
+                    if line.strip() == date:
+                        print("Day already scored.")
+                        return False
+
         print("format correct")
         return True
     except ValueError:
         print("Format incorrect")
         return False
     
+    
+
+    
     #Now need to check if that date has already been scored
     #I can just run a for loop through day_scores to see if that date is already there
     
 def getting_date():
     
-    curr_ans = input("Are you scoring today (0) or a prior date(1)? ")
+    curr_ans = input("Are you scoring today (0) or a prior date (1)? ")
     if curr_ans == '0':
         date = datetime.now().date().strftime("%Y-%m-%d")
-        print(date)
         return date
     else:
         valid_date = False
@@ -42,7 +52,7 @@ def get_score():
     if input("Was the day a special day? (y/n) ").lower() == "y":
         curr_ans = input("Was today amazing (a), great (b), or good (c)? ")
         if curr_ans == 'a':
-            score += 335
+            score += 343
         elif curr_ans == 'b':
             score += 300
         else:
@@ -62,6 +72,9 @@ def get_score():
 
         if input("Did you go on your phone when you woke up? (y/n) ") == 'n':
             score += 15
+
+        if input("Did you brush teeth and wash face in the morning? (y/n) ") == 'n':
+            score += 4
 
         if input("Did you do any stretching or mobility? (y/n) ") == 'y':
             score += 7
@@ -120,6 +133,9 @@ def get_score():
         if input("Did you pet an animal? (y/n) ") == 'y':
             score += 3
 
+        if input("Did you brush teeth and wash face before bed? (y/n) ") == 'n':
+            score += 4
+
         curr_ans = input("Are you going to sleep before 11 (a), before 1 (b), or later(c)? ")
         if curr_ans == 'a':
             score += 10
@@ -134,23 +150,46 @@ def get_score():
 
 
 
+def insert_new_date(date, score, note):
+    parsed_date = datetime.strptime(date, "%Y-%m-%d")
+    days = []
+    new_day = (parsed_date, score, note)
+
+    with open("day_scores.txt", "r" ) as file:
+        while True:
+            date_line = file.readline().strip()
+            if not date_line:
+                break
+            score_line = file.readline().strip()
+            note_line = file.readline().strip()
+            spacer_line = file.readline().strip()
+
+            date_line = datetime.strptime(date_line, "%Y-%m-%d")
+            days.append((date_line, score_line, note_line))
+
+    days.append(new_day)
+    days.sort(key=lambda x: x[0])
+
+    with open("day_scores.txt", "w") as file:
+        for day in days:
+            file.write(str(day[0].strftime("%Y-%m-%d")) + "\n")
+            file.write(str(day[1]) + "\n")
+            file.write(str(day[2]) + "\n")
+            file.write("\n")
 
 
 
 
         
-         
+
 
 
 
 def day_scorer():
     date = getting_date()
-    print(date)
     score = get_score()
     note = input("Add a brief note about this day: ")
-    day_scores.append([date, score, note])
-    with open("day_scores.txt", "a" ) as file:
-        file.write(str(date) + '\n' + str(score) + "\n" + str(note) +'\n\n')
+    insert_new_date(date, score, note)
         
 
 day_scorer()
