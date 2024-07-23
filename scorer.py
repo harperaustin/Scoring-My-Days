@@ -1,4 +1,6 @@
 from datetime import datetime
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 
 day_scores = []
 
@@ -179,12 +181,6 @@ def insert_new_date(date, score, note):
 
 
 
-
-        
-
-
-
-
 def day_scorer():
     date = getting_date()
     score = get_score()
@@ -192,4 +188,46 @@ def day_scorer():
     insert_new_date(date, score, note)
         
 
-day_scorer()
+#day_scorer()
+
+def show_plot():
+    dates = []
+    scores = []
+    with open("day_scores.txt", "r") as file:
+        count = 0
+        for line in file:
+            count += 1
+            if count % 4 == 1:
+                #Gather date data
+                dates.append(datetime.strptime(line.strip(), "%Y-%m-%d"))
+            elif count % 4 == 2:
+                #Gather score data
+                scores.append(int(line.strip()))
+
+    #Create the plot
+    fig, ax = plt.subplots()
+
+    #Plot the data
+    ax.plot(dates, scores)
+
+    #Format the x-axis to show dates
+    ax.xaxis.set_major_locator(mdates.DayLocator())
+    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+
+    #Make x-axis labels look cleaner
+    fig.autofmt_xdate()
+
+    ax.set_xlabel("Date")
+    ax.set_ylabel("Score")
+    ax.set_title("Day scores")
+    
+    plt.show()
+
+
+def run_day_scorer():
+    if input("Would you like to add a new day (0) or view the score data (1)? ") == 0:
+        day_scorer()
+    else:
+        show_plot()
+
+run_day_scorer()
