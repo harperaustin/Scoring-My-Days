@@ -54,11 +54,11 @@ def get_score():
     if input("Was the day a special day? (y/n) ").lower() == "y":
         curr_ans = input("Was today amazing (a), great (b), or good (c)? ")
         if curr_ans == 'a':
-            score += 343
+            score += 318
         elif curr_ans == 'b':
-            score += 300
+            score += 275
         else:
-            score += 250
+            score += 225
 
         return score
     else:
@@ -105,16 +105,13 @@ def get_score():
         if input("Did learn something new? (y/n) ") == 'y':
             score += 12
 
-        if input("Did you go outside for at least an hour? (y/n) ") == 'y':
-            score += 25
-
         curr_ans = input("Did you scroll on social media NONE (a), under 30 minutes (b), or more than 30 minutes (c)? ")
         if curr_ans == 'a':
             score += 25
         elif curr_ans == 'b':
             score += 10
 
-        if input("Did you do something productive (work, school, etc? (y/n) ") == 'y':
+        if input("Did you do something productive (work or school) (y/n) ") == 'y':
             score += 20
 
         if input("Did you do something productive outside of school or work? (y/n) ") == 'y':
@@ -238,7 +235,7 @@ def show_plot():
 
 
 def run_day_scorer():
-    if input("Would you like to add a new day (0) or view the score data (1)? ") == 0:
+    if input("Would you like to add a new day (0) or view the score data (1)? ") == '0':
         day_scorer()
     else:
         show_plot()
